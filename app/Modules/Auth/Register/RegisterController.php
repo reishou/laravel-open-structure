@@ -7,10 +7,10 @@ use Illuminate\Http\JsonResponse;
 
 class RegisterController extends Controller
 {
-    public function __invoke(RegisterRequest $request): JsonResponse
+    public function __invoke(RegisterRequest $request): RegisterResource
     {
         $dto = $request->dto();
 
-        return response()->json([$dto]);
+        return new RegisterResource($dto->toArray());
     }
 }

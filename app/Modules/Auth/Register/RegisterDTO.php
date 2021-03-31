@@ -6,8 +6,8 @@ use App\Infrastructure\DataTransferObjects\DTO;
 
 class RegisterDTO extends DTO
 {
-    private string $email;
-    private string $password;
+    protected string $email;
+    protected string $password;
 
     /**
      * RegisterDTO constructor.

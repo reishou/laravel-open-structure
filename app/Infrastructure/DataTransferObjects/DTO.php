@@ -7,7 +7,10 @@ use ReflectionClass;
 abstract class DTO
 {
     protected array $onlyKeys = [];
-    protected array $exceptKeys = [];
+    protected array $exceptKeys = [
+        'onlyKeys',
+        'exceptKeys',
+    ];
 
     public function all(): array
     {
@@ -23,7 +26,7 @@ abstract class DTO
                 continue;
             }
 
-            $data[$reflectionProperty->getName()] = $reflectionProperty->getValue($this);
+            $data[$reflectionProperty->getName()] = $this->{$reflectionProperty->getName()};
         }
 
         return $data;
