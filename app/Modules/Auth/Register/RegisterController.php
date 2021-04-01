@@ -2,8 +2,7 @@
 
 namespace App\Modules\Auth\Register;
 
-use App\Infrastructure\Controllers\Controller;
-use Illuminate\Http\JsonResponse;
+use App\Infrastructure\Http\Controllers\Controller;
 
 class RegisterController extends Controller
 {

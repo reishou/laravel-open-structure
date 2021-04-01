@@ -2,7 +2,7 @@
 
 namespace App\Modules\Auth\Register;
 
-use App\Infrastructure\Requests\FormRequest;
+use App\Infrastructure\Http\Requests\FormRequest;
 use Illuminate\Support\Facades\Hash;
 
 class RegisterRequest extends FormRequest
