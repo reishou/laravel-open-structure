@@ -4,9 +4,11 @@ namespace App\Modules\Auth\Register;
 
 use App\Infrastructure\Http\Requests\FormRequest;
 use Illuminate\Support\Facades\Hash;
+use JetBrains\PhpStorm\ArrayShape;
 
 class RegisterRequest extends FormRequest
 {
+    #[ArrayShape(['email' => "string", 'password' => "string"])]
     public function rules(): array
     {
         return [
@@ -15,6 +17,9 @@ class RegisterRequest extends FormRequest
         ];
     }
 
+    /**
+     * @return RegisterDTO
+     */
     public function dto(): RegisterDTO
     {
         $password = (string) $this->input('password');

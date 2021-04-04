@@ -2,22 +2,26 @@
 
 namespace App\Modules\Auth\Register;
 
-use App\Infrastructure\CommandHandlers\CommandHandler;
+use App\Core\Events\Registered;
+use App\Core\Models\User;
+use Illuminate\Events\Dispatcher;
 
-class RegisterCommandHandler extends CommandHandler
+class RegisterCommandHandler
 {
     /**
-     * @var RegisterDTO
+     * @var Dispatcher
      */
-    private RegisterDTO $dto;
+    private Dispatcher $dispatcher;
 
-    public function __construct(RegisterDTO $dto)
+    public function __construct(Dispatcher $dispatcher)
     {
-        $this->dto = $dto;
+        $this->dispatcher = $dispatcher;
     }
 
-    public function handler()
+    public function handle(RegisterDTO $dto)
     {
+        $user = User::create($dto->toArray());
 
+        $this->dispatcher->dispatch(new Registered($user->id, $dto->getEmail()));
     }
 }

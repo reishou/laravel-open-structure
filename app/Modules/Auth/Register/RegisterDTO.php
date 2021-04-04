@@ -11,12 +11,21 @@ class RegisterDTO extends DTO
 
     /**
      * RegisterDTO constructor.
+     *
      * @param string $email
      * @param string $password
      */
     public function __construct(string $email, string $password)
     {
-        $this->email    = $email;
         $this->password = $password;
+        $this->email    = $email;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEmail(): string
+    {
+        return $this->email;
     }
 }
