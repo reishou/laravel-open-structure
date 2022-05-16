@@ -1,5 +1,9 @@
 # Laravel Open Structure
 
+```
+cp .env{.example,}
+```
+
 ```bash
 docker-compose up -d
 ```
