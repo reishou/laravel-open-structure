@@ -2,28 +2,17 @@
 
 namespace App\Modules\Auth\Register;
 
-use App\Infrastructure\Http\Requests\FormRequest;
-use Illuminate\Support\Facades\Hash;
-use JetBrains\PhpStorm\ArrayShape;
+use Core\Http\Requests\FormRequest;
 
 class RegisterRequest extends FormRequest
 {
-    #[ArrayShape(['email' => "string", 'password' => "string"])]
     public function rules(): array
     {
         return [
-            'email'    => 'required|email:rfc,dns',
-            'password' => 'required|string',
+            'email'    => 'required|email:rfc,dns|max:255',
+            'password' => 'required|string|min:6|max:255|regex:/(^[A-Za-z0-9 ]+$)+/',
+            'name'     => 'required|string|max:255',
+            'nickname' => 'required|string|max:255',
         ];
-    }
-
-    /**
-     * @return RegisterDTO
-     */
-    public function dto(): RegisterDTO
-    {
-        $password = (string) $this->input('password');
-
-        return new RegisterDTO((string) $this->input('email'), Hash::make($password));
     }
 }

@@ -1,6 +1,22 @@
 <?php
 
-use App\Modules\Auth\Register\RegisterController;
 use Illuminate\Support\Facades\Route;
 
-Route::post('register', RegisterController::class);
+/*
+|--------------------------------------------------------------------------
+| API Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register API routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| is assigned the "api" middleware group. Enjoy building your API!
+|
+*/
+
+Route::get('/', function () {
+    return app()->version();
+});
+
+Route::get('health', function () {
+    return response()->json(true);
+});

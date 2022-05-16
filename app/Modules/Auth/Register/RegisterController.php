@@ -2,26 +2,15 @@
 
 namespace App\Modules\Auth\Register;
 
-use App\Infrastructure\Http\Controllers\Controller;
+use Core\Http\Controllers\Controller;
 
 class RegisterController extends Controller
 {
     /**
-     * @var RegisterCommandHandler
+     * @return mixed
      */
-    private RegisterCommandHandler $commandHandler;
-
-    public function __construct(RegisterCommandHandler $commandHandler)
+    public function __invoke(): mixed
     {
-        $this->commandHandler = $commandHandler;
-    }
-
-    public function __invoke(RegisterRequest $request): RegisterResource
-    {
-        $dto = $request->dto();
-
-        $this->commandHandler->handle($dto);
-
-        return new RegisterResource($dto->toArray());
+        return $this->serve(RegisterFeature::class);
     }
 }
