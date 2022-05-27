@@ -7,7 +7,9 @@ use Core\Models\BaseModel;
 use Database\Factories\UserFactory;
 use Eloquent;
 use Illuminate\Auth\Authenticatable;
+use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
+use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -55,12 +57,13 @@ use Laravel\Sanctum\PersonalAccessToken;
  * @property-read Collection|Post[] $posts
  * @property-read int|null $posts_count
  */
-class User extends BaseModel implements AuthenticatableContract
+class User extends BaseModel implements AuthenticatableContract, CanResetPasswordContract
 {
     use HasApiTokens;
     use HasFactory;
     use Notifiable;
     use Authenticatable;
+    use CanResetPassword;
 
     /**
      * The attributes that are mass assignable.
