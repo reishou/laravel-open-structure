@@ -1,0 +1,23 @@
+<?php
+
+namespace $NAMESPACE$;
+
+use Core\Domains\BaseJob;
+
+class $CLASS_NAME$ extends BaseJob
+{
+    /**
+     * @param
+     */
+    public function __construct(private)
+    {
+    }
+
+    /**
+     * @return
+     */
+    public function handle()
+    {
+        //
+    }
+}

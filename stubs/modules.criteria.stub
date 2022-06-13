@@ -1,0 +1,12 @@
+<?php
+
+namespace $NAMESPACE$;
+
+use Core\Criteria\Criteria;
+
+class $CLASS_NAME$ extends Criteria
+{
+    protected array $criteria = [
+        //
+    ];
+}

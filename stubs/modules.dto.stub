@@ -1,0 +1,12 @@
+<?php
+
+namespace $NAMESPACE$;
+
+use Core\DataTransferObjects\Dto;
+use Spatie\DataTransferObject\Attributes\MapTo;
+
+class $CLASS_NAME$ extends Dto
+{
+    #[MapTo('user_id')]
+    public int $userId;
+}

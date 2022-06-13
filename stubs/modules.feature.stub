@@ -1,0 +1,14 @@
+<?php
+
+namespace $NAMESPACE$;
+
+use Core\Services\BaseFeatures;
+use Illuminate\Http\JsonResponse;
+
+class $CLASS_NAME$ extends BaseFeatures
+{
+    public function handle(): JsonResponse
+    {
+        return $this->success(new $TRANSFORMER_NAME$(true));
+    }
+}

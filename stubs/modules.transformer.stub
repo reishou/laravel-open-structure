@@ -1,0 +1,21 @@
+<?php
+
+namespace $NAMESPACE$;
+
+use Core\Transformers\BaseTransformer;
+use Core\Utils\UniqueIdentity;
+use Faker\Factory;
+use Illuminate\Support\Carbon;
+
+class $CLASS_NAME$ extends BaseTransformer
+{
+    /**
+     * @return array
+     */
+    public function data(): array
+    {
+        return [
+            //
+        ];
+    }
+}
