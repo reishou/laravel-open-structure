@@ -45,7 +45,7 @@ class GenerateUseCase extends Command
             'Controller',
             'Feature',
             'Transformer',
-            'Dto',
+            'DTO',
             'Request',
             'Criteria',
             'Job',

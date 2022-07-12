@@ -15,14 +15,12 @@ return new class extends Migration
     {
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id')->unique();
             $table->string('name')->nullable();
             $table->string('nickname')->nullable();
             $table->string('avatar')->nullable();
-            $table->string('life_safety_id')->nullable();
-            $table->date('life_safety_expired_date')->nullable();
-            $table->string('safety_sensor_id')->nullable();
-            $table->text('description')->nullable();
+            $table->string('latitude')->nullable();
+            $table->string('longitude')->nullable();
+            $table->point('location')->nullable();
             $table->timestamps();
         });
     }

@@ -2,8 +2,9 @@
 
 namespace Core\Enums;
 
-class BaseExceptionCode extends Enum
+enum BaseExceptionCode: int
 {
-    public const UNAUTHENTICATED = 1000;
-    public const UNAUTHORIZED    = 1001;
+    case UNAUTHENTICATED = 1000;
+    case UNAUTHORIZED = 1001;
 }
+

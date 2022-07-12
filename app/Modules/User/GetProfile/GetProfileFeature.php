@@ -14,7 +14,7 @@ class GetProfileFeature extends BaseFeatures
     /**
      * @param  int  $userId
      */
-    public function __construct(private int $userId)
+    public function __construct(private readonly int $userId)
     {
     }
 
@@ -37,11 +37,6 @@ class GetProfileFeature extends BaseFeatures
     {
         return $this->findOrFail(User::class, $userId, [
             'profile',
-            'followers',
-            'following',
-            'followed' => function ($query) use ($authenticatedUserId) {
-                $query->where('user_id', $authenticatedUserId);
-            },
         ]);
     }
 }

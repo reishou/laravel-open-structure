@@ -2,7 +2,7 @@
 
 namespace Core\Enums;
 
-class FileDirectoryType extends Enum
+enum FileDirectoryType: string
 {
     /**
      * @param  string  $type

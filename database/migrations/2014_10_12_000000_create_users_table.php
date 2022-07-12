@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('email')->nullable();
             $table->string('password')->nullable();
-            $table->string('facebook_id')->nullable();
             $table->unsignedSmallInteger('status')->default(0);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

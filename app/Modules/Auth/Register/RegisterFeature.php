@@ -3,6 +3,7 @@
 namespace App\Modules\Auth\Register;
 
 use App\Enums\ExceptionCode;
+use App\Enums\UserStatus;
 use App\Exceptions\BusinessException;
 use App\Models\User;
 use Core\Services\BaseFeatures;
@@ -42,8 +43,8 @@ class RegisterFeature extends BaseFeatures
     protected function createProfile(User $user, RegisterRequest $request): void
     {
         $this->run(CreateProfileJob::class, [
-            'dto' => new CreateProfileDto(
-                userId: $user->id,
+            'dto' => new CreateProfileDTO(
+                id: $user->id,
                 name: (string) $request->input('name'),
                 nickname: (string) $request->input('nickname'),
             ),
@@ -75,9 +76,10 @@ class RegisterFeature extends BaseFeatures
     protected function registerUser(RegisterRequest $request): User
     {
         return $this->run(RegisterUserJob::class, [
-            'dto' => new RegisterUserDto(
+            'dto' => new RegisterUserDTO(
                 email: (string) $request->input('email'),
                 hashedPassword: Hash::make((string) $request->input('password')),
+                status: UserStatus::Newbie
             ),
         ]);
     }

@@ -2,8 +2,10 @@
 
 namespace Core\Enums;
 
-class Language extends Enum
+enum Language: string
 {
-    public const ENGLISH  = 'en';
-    public const JAPANESE = 'ja';
+    case ENGLISH = 'en';
+    case VIETNAMESE = 'vi';
+    case JAPANESE = 'ja';
+    case KOREAN = 'ko';
 }

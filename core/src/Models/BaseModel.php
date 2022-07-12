@@ -42,6 +42,7 @@ abstract class BaseModel extends Model
         if ($sequences->isEmpty()) {
             $sequences = collect(range(1, $count));
         }
+
         return $sequences->map(function ($sequence) {
             return UniqueIdentity::id((int) $sequence);
         })
@@ -54,10 +55,15 @@ abstract class BaseModel extends Model
      */
     protected function getNextSequences(int $count = 1): Collection
     {
-        $results = DB::select(
-            'select nextval(?) as next_sequence from generate_series(1,?)',
-            [DB::getTablePrefix().$this->getTable().'_id_seq', $count]
-        );
+        if (DB::getDriverName() == 'pgsql') {
+            $results = DB::select(
+                'select nextval(?) as next_sequence from generate_series(1,?)',
+                [DB::getTablePrefix().$this->getTable().'_id_seq', $count]
+            );
+        } else {
+            $start   = DB::select('select count(*) as count from '.DB::getTablePrefix().$this->getTable())[0]->count ?? 0;
+            $results = range($start, $start + $count);
+        }
 
         return collect($results)->pluck('next_sequence');
     }

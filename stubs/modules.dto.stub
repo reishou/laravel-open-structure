@@ -2,10 +2,10 @@
 
 namespace $NAMESPACE$;
 
-use Core\DataTransferObjects\Dto;
+use Core\DataTransferObjects\DTO;
 use Spatie\DataTransferObject\Attributes\MapTo;
 
-class $CLASS_NAME$ extends Dto
+class $CLASS_NAME$ extends DTO
 {
     #[MapTo('user_id')]
     public int $userId;

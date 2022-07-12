@@ -38,11 +38,10 @@ class Profile extends BaseModel
     protected $table = 'profiles';
 
     protected $fillable = [
-        'user_id',
+        'id',
         'name',
         'nickname',
         'avatar',
-        'description',
     ];
 
     /**

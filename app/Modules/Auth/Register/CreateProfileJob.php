@@ -7,7 +7,7 @@ use Core\Domains\BaseJob;
 
 class CreateProfileJob extends BaseJob
 {
-    public function __construct(private CreateProfileDto $dto)
+    public function __construct(private readonly CreateProfileDTO $dto)
     {
     }
 

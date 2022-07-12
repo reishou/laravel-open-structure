@@ -93,7 +93,7 @@ class Handler extends ExceptionHandler
      */
     protected function authenticationException(AuthenticationException $e): JsonResponse
     {
-        $this->addError($e->getMessage(), BaseExceptionCode::UNAUTHENTICATED);
+        $this->addError($e->getMessage(), BaseExceptionCode::UNAUTHENTICATED->value);
 
         return $this->error(Response::HTTP_UNAUTHORIZED);
     }
@@ -104,7 +104,7 @@ class Handler extends ExceptionHandler
      */
     protected function authorizationException(AuthorizationException $e): JsonResponse
     {
-        $this->addError($e->getMessage(), BaseExceptionCode::UNAUTHORIZED);
+        $this->addError($e->getMessage(), BaseExceptionCode::UNAUTHORIZED->value);
 
         return $this->error(Response::HTTP_FORBIDDEN);
     }

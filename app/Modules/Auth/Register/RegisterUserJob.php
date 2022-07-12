@@ -8,9 +8,9 @@ use Core\Domains\BaseJob;
 class RegisterUserJob extends BaseJob
 {
     /**
-     * @param  RegisterUserDto  $dto
+     * @param  RegisterUserDTO  $dto
      */
-    public function __construct(private RegisterUserDto $dto)
+    public function __construct(private readonly RegisterUserDTO $dto)
     {
     }
 

@@ -3,14 +3,11 @@
 namespace App\Enums;
 
 use App\Models\User;
-use Core\Enums\Enum;
 use Illuminate\Database\Eloquent\Relations\Relation;
 
-class RelationMap extends Enum
+enum RelationMap: string
 {
-    public const USER         = 'user';
-    public const POST         = 'post';
-    public const POST_COMMENT = 'post_comment';
+    case USER = 'user';
 
     /**
      * Setup morphMap by enum const
@@ -20,7 +17,8 @@ class RelationMap extends Enum
     public static function morphMap(): void
     {
         Relation::morphMap([
-            self::USER => User::class,
+            self::USER->value => User::class,
         ]);
     }
 }
+
