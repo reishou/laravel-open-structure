@@ -12,6 +12,10 @@ docker-compose up -d
 docker-compose exec app sh
 ```
 
+```
+php artisan ide-helper:generate
+```
+
 Try url http://localhost:22040
 
 
